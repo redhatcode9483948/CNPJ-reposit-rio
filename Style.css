@@ -1,0 +1,50 @@
+Style.css
+body { 
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+
+}
+header, footer {
+    background-color: #0d6efd;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+main {
+    max-width: 800px;
+    width: 100%;    
+    padding: 2rem;
+
+}
+#form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#consultar {
+     background-color: #198754;
+     color:white;
+     border: none;
+     padding: o.6rem 1rem;
+     border-radius: 4px;
+
+}
+#consultar:hover {
+    background-color: #157347;
+    cursor: pointer;
+}
+#result-constainer {
+    margin-top: 1.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
