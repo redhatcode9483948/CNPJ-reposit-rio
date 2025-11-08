@@ -1,34 +1,64 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta de CNPJ</title>
+  <title>CNPJ Explorer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+ <body>
   <header>
-    <h1>CNPJ Explorer</h1>
+    <div class="menu">
+      <h2 class="logo-title">CNPJ Explorer</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="noticias.html" ></a>Atualizações</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-
-  <main>
-    <section id="form-section">
+   <main class="consulta-container fade"></main>
+  <img class="logo" src="https://www.serasa.com.br/assets/cms/2021/Como-consultar-CNPJ-de-empresa.png" alt="logo">
+ 
+  <form id="consulta-form">
+    <div class="input-group">
+      
       <label for="cnpj">Digite o CNPJ:</label>
-      <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
-      <button id="consultar">Consultar</button>
-    </section>
+      <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0001-00" required>
+    </div>
 
-    <section id="result-section">
-      <h2>Resultado</h2>
-      <div id="result-container">
-        <!-- Os resultados simulados vão aparecer aqui -->
+    <div class="input-group">
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" name="cep" placeholder="00000-000">
+    </div>
+
+    <div class="input-group">
+      <label for="municipio">Município:</label>
+      <input type="text" id="municipio" name="municipio" placeholder="Ex: São Paulo">
+    </div>
+
+    <div class="input-group">
+      <label for="natureza">Natureza Jurídica:</label>
+      <input type="text" id="natureza" name="natureza" placeholder="Ex: LTDA">
+    </div>
+    <button type="submit" id="btn-consultar"><img src="https://cdn-icons-png.flaticon.com/512/1209/1209849.png" alt="icon" class="icon">consultar
+</button>
+  </form>
       </div>
-    </section>
   </main>
+</section>
 
+ </body>
   <footer>
-    <p>Projeto FATEC — Consulta de CNPJ</p>
+    <div class="footer-content">
+      <p><strong>Endereço:</strong> FATEC - São Paulo, SP</p>
+      <p><strong>Contato:</strong> contato@fatec.com.br | (11) 99999-9999</p>
+      <p><strong>Horário de funcionamento:</strong> Seg a Sex, das 8h às 18h</p>
+      <p><strong>Desenvolvido por:</strong> Lucas Rafael (Front-end) | Equipe FATEC</p>
+      <p>© 2025 CNPJ Explorer - Todos os direitos reservados.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
