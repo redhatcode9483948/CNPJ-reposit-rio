@@ -1,50 +1,241 @@
 Style.css
-body { 
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-
-
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 header, footer {
-    background-color: #0d6efd;
-    color: white;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
 }
+
 main {
-    max-width: 800px;
-    width: 100%;    
-    padding: 2rem;
-
+  max-width: 800px;
+  width: 100%;
+  padding: 1rem;
 }
+
 #form-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
+
+#form-section input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
 #consultar {
-     background-color: #198754;
-     color:white;
-     border: none;
-     padding: o.6rem 1rem;
-     border-radius: 4px;
+  background-color: #198754;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#consultar:hover {
+  background-color: #157347;
+}
+
+#result-container {
+  margin-top: 1.5rem;
+  background: rgb(202, 75, 16);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #070505;
+}
+h1, label {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#btn-consultar {
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#btn-consultar:hover {
+  background-color: #0055aa;
+}
+/*fim da centralização*/
+.logo {
+  width: 120px;
+  margin-bottom: 1rem;
+  /*logo*/
+}
+
+/*botão com ícone*/
+.icon { width: 18px;
+  vertical-align: middle;
+  margin-right: 10px;
+  /*fim do botão com ícone*/
+}
+/* 🔧 Reset básico para ocupar toda a altura da tela */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}/* 🔧 Forçar a imagem de fundo a cobrir toda a página */
+
+/*centralização e estilização do background*/
+.form-container {
+  background: transparent;
+  padding: 25px 35px;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+  
+    /*fim do background*/
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* altura total da tela */
+  background-image: url("https://pn7.com.br/wp-content/uploads/2023/03/IR-Imposto-de-Renda-Receita-federal.jpg");
+  background-size: cover; /* cobre toda a tela */
+  background-position: center; /* centraliza a imagem */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+
+  /* 🧭 Faz o container ocupar toda a tela */
+  min-height: 100vh;
+  
+  /* 🎯 Centraliza o conteúdo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* 🔲 Espaçamento interno */
+  padding: 1rem;
+}
+
+/* 🔹 Para o conteúdo não ficar encostado nas bordas */
+main {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  background: transparent;
+  border-radius: 12px;
 
 }
-#consultar:hover {
-    background-color: #157347;
-    cursor: pointer;
+
+/* 🔹 Deixa o botão com destaque */
+#btn-consultar {
+  background-color: #0d6efd;
+  border-radius: 5px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s ease;
+  text-align: center;
 }
-#result-constainer {
-    margin-top: 1.5rem;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+#btn-consultar: hover {
+  background-color: #157347;
 }
+/* ===== MENU ===== */
+header {
+  width: 100%;
+  background-color: #0d6efd;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+/*ajusta as páginas lá em cima*/
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+/*organiza as páginas lá em cima*/
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+/*estiliza os links das páginas lá em cima*/
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+/*deixa uma das páginas destacada*/
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ffcc00;
+}
+
+/* ===== TRANSIÇÃO SUAVE ===== */
+.fade {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+/*animação de transição suave*/
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  width: 100%;
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+.footer-content p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
