@@ -100,7 +100,7 @@ def preparar_cnpj_para_busca(cnpj):
 
 # ================= CONSULTA OTIMIZADA =================
 def consultar_cnpj_no_banco(cnpj_basico, cnpj_ordem, cnpj_dv):
-    """Consulta otimizada no banco de dados"""
+    """Consulta otimizada no banco de dados com join para buscar nome do município"""
     conn = None
     cur = None
     
@@ -110,6 +110,7 @@ def consultar_cnpj_no_banco(cnpj_basico, cnpj_ordem, cnpj_dv):
         cur = conn.cursor()
         
         # Query otimizada - busca por partes separadas
+        # Agora com JOIN na tabela 'munic' para pegar o nome do município
         query = """
             SELECT
                 e.cnpj_basico,
@@ -121,10 +122,11 @@ def consultar_cnpj_no_banco(cnpj_basico, cnpj_ordem, cnpj_dv):
                 e.numero,
                 e.bairro,
                 e.cep,
-                e.municipio,
+                COALESCE(m.descricao, 'Município não encontrado') as municipio_nome,
                 e.uf
             FROM estabelecimento e
             JOIN empresa em ON em.cnpj_basico = e.cnpj_basico
+            LEFT JOIN munic m ON CAST(e.municipio AS VARCHAR) = CAST(m.codigo AS VARCHAR)
             WHERE e.cnpj_basico = %s 
               AND e.cnpj_ordem = %s 
               AND e.cnpj_dv = %s
@@ -140,15 +142,19 @@ def consultar_cnpj_no_banco(cnpj_basico, cnpj_ordem, cnpj_dv):
             cnpj_b, cnpj_o, cnpj_dv_val, nome, status, logradouro, numero, bairro, cep, municipio, uf = row
             cnpj_completo = f"{cnpj_b}{cnpj_o}{cnpj_dv_val}"
             
+            # Remove espaços em branco extras do nome do município
+            if municipio:
+                municipio = municipio.strip()
+            
             resultado = {
                 "cnpj": formatar_cnpj(cnpj_completo),
-                "nome": nome,
-                "situacao": status,
-                "endereco": f"{logradouro}, {numero}, {bairro}",
-                "cep": cep,
-                "municipio": municipio,
-                "uf": uf,
-                "ativa": status == "02"
+                "nome": nome.strip() if nome else "",
+                "situacao": status.strip() if status else "",
+                "endereco": f"{logradouro.strip() if logradouro else ''}, {numero.strip() if numero else ''}, {bairro.strip() if bairro else ''}".strip(", "),
+                "cep": cep.strip() if cep else "",
+                "municipio": municipio,  # Agora com o nome do município (não mais código)
+                "uf": uf.strip() if uf else "",
+                "ativa": status == "02" if status else False
             }
             
             # Armazena no cache
